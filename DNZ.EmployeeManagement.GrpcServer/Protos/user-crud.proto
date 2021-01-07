@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "DNZ.EmployeeManagement.GrpcServer.Protos";
+
+message CreateUserDto {
+ string first_name = 1;
+ string last_name = 2;
+ string national_id = 3;
+ string phone_number = 4;
+ string email = 5;
+}
+
+message CreateUserResultDto {
+	bool is_succeeded = 1;
+}
+
+service UserService {
+	rpc CreateUser(CreateUserDto) returns (CreateUserResultDto);
+}
